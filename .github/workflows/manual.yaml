@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Test
+name: Build Terraform
 
 # Controls when the action will run. 
 on: workflow_dispatch
@@ -14,6 +12,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # checkout repo
+      - uses: actions/checkout@v2
+
       # get docker version
-      - name: get terraform versions
-        run: curl -s https://api.github.com/repos/hashicorp/terraform/tags?per_page=10 | jq -r '.[].name' | sed -e 's/^v//g' | while read version ; do echo $version; done
+      - name: build last 5 terraform versions
+        run: curl -s https://api.github.com/repos/hashicorp/terraform/tags?per_page=5 | jq -r '.[].name' | sed -e 's/^v//g' | while read version ; do docker build -t ghcr.io/300481/terraform:$version ; done
