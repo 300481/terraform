@@ -1,0 +1,22 @@
+name: Build Terraform Scheduled
+
+# Controls when the action will run. 
+on:
+  schedule:
+  - cron: ''
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # checkout repo
+      - uses: actions/checkout@v2
+
+      # get docker version
+      - name: build last 5 terraform versions
+        run: curl -s https://api.github.com/repos/hashicorp/terraform/tags?per_page=5 | jq -r '.[].name' | sed -e 's/^v//g' | while read version ; do docker build -t ghcr.io/300481/terraform:$version ; done
