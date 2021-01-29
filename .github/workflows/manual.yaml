@@ -17,4 +17,4 @@ jobs:
 
       # get docker version
       - name: build last 5 terraform versions
-        run: curl -s https://api.github.com/repos/hashicorp/terraform/tags?per_page=5 | jq -r '.[].name' | sed -e 's/^v//g' | while read version ; do docker build -t ghcr.io/300481/terraform:$version ; done
+        run: curl -s https://api.github.com/repos/hashicorp/terraform/tags?per_page=5 | jq -r '.[].name' | sed -e 's/^v//g' | while read version ; do docker build -t ghcr.io/300481/terraform:$version . ; done
