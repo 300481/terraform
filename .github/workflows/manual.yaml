@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: get some system information
-        run: nproc ; free -m ; df -h ; whoami ; id ; pwd ; echo $HOME ; ps -ef
+        run: nproc ; free -m ; df -h ; whoami ; id ; pwd ; echo $HOME ; ps -ef ; cat /etc/sudoers
 
       #- name: build last 5 terraform versions
       #  run: /bin/sh build.sh
