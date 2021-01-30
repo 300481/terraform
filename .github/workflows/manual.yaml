@@ -15,6 +15,8 @@ jobs:
       # checkout repo
       - uses: actions/checkout@v2
 
-      # get docker version
-      - name: build last 5 terraform versions
-        run: /bin/sh build.sh
+      - name: get some system information
+        run: nproc ; free -m ; df -h ; whoami ; id
+
+      #- name: build last 5 terraform versions
+      #  run: /bin/sh build.sh
