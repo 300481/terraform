@@ -3,7 +3,7 @@
 HASHICORP_TAGS=$(curl -s https://api.github.com/repos/hashicorp/terraform/tags?per_page=100i | jq -r '.[].name')
 echo ${HASHICORP_TAGS[@]}
 
-for TAG in ${HASHiCORP_TAGS[@]} ; do
+for TAG in ${HASHICORP_TAGS[@]} ; do
     git tag -a ${TAG} -m "${TAG}"
 done
 
