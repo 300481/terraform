@@ -4,7 +4,7 @@ HASHICORP_TAGS=$(curl -s https://api.github.com/repos/hashicorp/terraform/tags?p
 echo ${HASHICORP_TAGS[@]}
 
 for TAG in ${HASHiCORP_TAGS[@]} ; do
-    git tag -a ${TAG} -m "${TAG}
+    git tag -a ${TAG} -m "${TAG}"
 done
 
 git push --tags
