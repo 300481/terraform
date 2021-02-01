@@ -11,3 +11,5 @@ jobs:
 
       - name: run build script
         run: ./build.sh
+        env:
+          GHTOKEN: ${{ secrets.GHTOKEN }}
