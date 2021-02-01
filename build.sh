@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 TAG_PATTERN="refs/tags/.*"
 
