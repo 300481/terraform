@@ -8,9 +8,10 @@ echo ${HASHICORP_TAGS[@]}
 
 for TAG in ${HASHICORP_TAGS[@]} ; do
     git tag -a ${TAG} -m "${TAG}"
+    git push origin :${TAG}
+    git push origin ${TAG}
 done
 
-git push --tags
 
 exit 0
 
