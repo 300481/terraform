@@ -7,5 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: show env
-        run: env
+      - uses: actions/checkout@v2
+
+      - name: run build script
+        run: /bin/bash build.sh
