@@ -17,4 +17,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Add new tags
-        run: add_tags.sh
+        run: ./add_tags.sh
