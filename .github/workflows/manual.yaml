@@ -18,3 +18,5 @@ jobs:
 
       - name: build
         run: ./build.sh
+        env:
+          TERRAFORM_TOKEN: ${{ secrets.TERRAFORM_TOKEN }}
