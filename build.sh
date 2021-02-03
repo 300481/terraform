@@ -1,8 +1,8 @@
 #!/bin/bash
 
 TAG_DATA='{"local": [], "remote": [], "diff": []}'
-LOCAL_TAGS="https://api.github.com/repos/300481/terraform/tags?per_page=100"
-REMOTE_TAGS="https://api.github.com/repos/hashicorp/terraform/tags?per_page=100"
+LOCAL_TAGS="https://api.github.com/repos/300481/terraform/tags?per_page=10"
+REMOTE_TAGS="https://api.github.com/repos/hashicorp/terraform/tags?per_page=10"
 
 # fetch tags of hashicorp terraform
 for TAG in $(curl -s ${REMOTE_TAGS} | jq -r '.[].name') ; do
